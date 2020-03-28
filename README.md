@@ -13,4 +13,5 @@ Visualized Web Front-end Hunter Framework
     Hunt for data
     
 ## Steps for use
-
+    pip install -r requirements.txt  
+    python -m flask run

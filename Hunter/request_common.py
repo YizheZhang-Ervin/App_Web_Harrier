@@ -40,9 +40,9 @@ def hunt(url, name=None, concat_str=None, save_root=None, return_content=None, *
         r.raise_for_status()
         r.encoding = r.apparent_encoding
         # print(r.request.url, len(r.text))
-        if return_content == 'start':
+        if return_content == 'head':
             return r.text[:1000]
-        elif return_content == 'end':
+        elif return_content == 'tail':
             return r.text[-500:]
         else:
             return r.text
@@ -64,6 +64,6 @@ if __name__ == '__main__':
     hunt(url3, name='setUserAgent', kv={'user-agent': 'Mozilla/5.0'})
     hunt(url4, name='setParams', kv={'wd': 'abc'})
     hunt(url5, name='setParams', kv={'q': 'abc'})
-    hunt(url6, name='setConcat', concat_str='192.168.1.1', return_content='end')
+    hunt(url6, name='setConcat', concat_str='192.168.1.1', return_content='tail')
     hunt(url7, name='setSave', save_root='/')
 
