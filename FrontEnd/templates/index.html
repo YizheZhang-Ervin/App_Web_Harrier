@@ -12,7 +12,7 @@
         <div class="d-flex w-100 h-100 mx-auto flex-column">
             <header class="margin-bottom">
                 <nav class="navbar navbar-dark bg-dark inner text-left">
-                    <a class="navbar-brand" href="#">Harrier Hunter</a>
+                    <a class="navbar-brand" href="/">Harrier Hunter</a>
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -51,7 +51,7 @@
                                             <div class="dropdown-menu bg-dark border-none" aria-labelledby="dropdown04">
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">Engine</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" list="itemlist1">
+                                                    <input name="engine" class="col-7 text-white bg-transparent border-dashed" list="itemlist1">
                                                     <datalist id="itemlist1">
                                                         <option>Harrier</option>
                                                         <option>Scrapy</option>
@@ -65,9 +65,9 @@
                                             <div class="dropdown-menu bg-dark border-none" aria-labelledby="dropdown02">
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">URL</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" placeholder="https://host:port/path">
+                                                    <input name="url" class="col-7 text-white bg-transparent border-dashed" placeholder="https://host:port/path">
                                                     <div class="col-4 dropdown-item text-white">Operation</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" list="itemlist_type">
+                                                    <input name="operation" class="col-7 text-white bg-transparent border-dashed" list="itemlist_type">
                                                     <datalist id="itemlist_type">
                                                         <option>setUserAgent</option>
                                                         <option>setKeyValue</option>
@@ -75,16 +75,16 @@
                                                         <option>setViewPart</option>
                                                     </datalist>
                                                     <div class="col-4 dropdown-item text-white">Concat Content</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" placeholder="xxxxx">
+                                                    <input name="content" class="col-7 text-white bg-transparent border-dashed" placeholder="xxxxx">
                                                     <div class="col-4 dropdown-item text-white">View Part</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" list="itemlist_view">
+                                                    <input name="viewpart" class="col-7 text-white bg-transparent border-dashed" list="itemlist_view">
                                                     <datalist id="itemlist_view">
                                                         <option>head</option>
                                                         <option>tail</option>
                                                         <option>all</option>
                                                     </datalist>
                                                     <div class="col-4 dropdown-item text-white">KeyValue</div>
-                                                    <input class="col-7 text-white bg-transparent border-dashed" placeholder="{'xx':'xx'}">
+                                                    <input name="keyvalue" class="col-7 text-white bg-transparent border-dashed" placeholder="{'xx':'xx'}">
                                                 </div>
                                             </div>
                                         </li>
@@ -94,13 +94,13 @@
                                             <div class="dropdown-menu bg-dark border-none" aria-labelledby="dropdown03">
                                                 <div class="row">
                                                     <div class="col-7 dropdown-item text-white">Concurrent Requests</div>
-                                                    <input class="col-4 text-white bg-transparent border-dashed" placeholder="32">
+                                                    <input name="crequests" class="col-4 text-white bg-transparent border-dashed" placeholder="32">
                                                     <div class="col-7 dropdown-item text-white">Concurrent Items</div>
-                                                    <input class="col-4 text-white bg-transparent border-dashed" placeholder="100">
+                                                    <input name="citems" class="col-4 text-white bg-transparent border-dashed" placeholder="100">
                                                     <div class="col-7 dropdown-item text-white">Concurrent Requests per domain</div>
-                                                    <input class="col-4 text-white bg-transparent border-dashed" placeholder="8">
+                                                    <input name="crequestdomain" class="col-4 text-white bg-transparent border-dashed" placeholder="8">
                                                     <div class="col-7 dropdown-item text-white">Concurrent Requests per IP</div>
-                                                    <input class="col-4 text-white bg-transparent border-dashed" placeholder="0">
+                                                    <input name="crequestip" class="col-4 text-white bg-transparent border-dashed" placeholder="0">
                                                 </div>
                                             </div>
                                         </li>
@@ -110,7 +110,7 @@
                                             <div class="dropdown-menu bg-dark border-none" aria-labelledby="dropdown05">
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">Download</div>
-                                                    <a class="btn bg-info" href="#" download="result.html">Download</a>
+                                                    <a class="btn bg-info text-white" href="{{ content }}" download="result.html">Download</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -131,7 +131,7 @@
                     </div>
                     <!-- Results -->
                     <div class="col-4">
-                        <textarea class="w-100 border-dashed bg-transparent text-white h-100" placeholder="Results Here" readonly></textarea>
+                        <textarea class="w-100 border-dashed bg-transparent text-white h-100" placeholder="Results Here" readonly>{{ result }}</textarea>
                     </div>
                 </div>
             </main>

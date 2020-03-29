@@ -17,15 +17,15 @@ def fileProcess(url, root=None):
 
 
 # get Response from HTML
-def hunt(url, name=None, concat_str=None, save_root=None, return_content=None, **kv):
+def hunt(url, operation=None, concat_str=None, save_root=None, return_content=None, **kv):
     try:
-        if name == 'setUserAgent':
+        if operation == 'setUserAgent':
             r = requests.get(url, headers=kv)
-        elif name == 'setParams':
+        elif operation == 'setKeyValue':
             r = requests.get(url, params=kv)
-        elif name == 'setConcat':
+        elif operation == 'setConcat':
             r = requests.get(url + concat_str)
-        elif name == 'setSave':
+        elif operation == 'setSave':
             if save_root is not None:
                 path = fileProcess(url, save_root)
             else:
@@ -59,11 +59,11 @@ if __name__ == '__main__':
     url6 = 'http://m.ip138.com/ip.asp?ip='
     url7 = 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2140013030,314739014&fm=26&gp=0.jpg'
 
-    hunt(url1)
-    hunt(url2)
-    hunt(url3, name='setUserAgent', kv={'user-agent': 'Mozilla/5.0'})
-    hunt(url4, name='setParams', kv={'wd': 'abc'})
-    hunt(url5, name='setParams', kv={'q': 'abc'})
-    hunt(url6, name='setConcat', concat_str='192.168.1.1', return_content='tail')
-    hunt(url7, name='setSave', save_root='/')
+    # print(hunt(url1))
+    # print(hunt(url2))
+    # hunt(url3, operation='setUserAgent', kv={'user-agent': 'Mozilla/5.0'})
+    # hunt(url4, operation='setParams', kv={'wd': 'abc'})
+    # hunt(url5, operation='setParams', kv={'q': 'abc'})
+    # hunt(url6, operation='setConcat', concat_str='192.168.1.1', return_content='tail')
+    # hunt(url7, operation='setSave', save_root='/')
 
