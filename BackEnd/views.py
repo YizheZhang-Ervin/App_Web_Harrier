@@ -21,7 +21,7 @@ def index():
         para_dict = {}
         for k, v in parameters.items():
             para_dict[k] = v
-        if para_dict.get('engine') == 'Harrier' or para_dict.get('engine') == '':
+        if para_dict.get('engine', 'Harrier') == 'Harrier':
             setKV = para_dict.get('setKV', '')
             setHeader = para_dict.get('setHeader', '')
             if setHeader != '' and setKV == '':

@@ -15,10 +15,12 @@ def hunt(url, x=None, concat_str=None, return_content=None):
         r.raise_for_status()
         r.encoding = r.apparent_encoding
 
-        if return_content == 'head':
-            return r.text[:1000]
-        elif return_content == 'tail':
-            return r.text[-500:]
+        if return_content == 'header':
+            return r.headers
+        elif return_content == 'text':
+            return r.text
+        elif return_content == 'content':
+            return r.content
         else:
             return r.text
     except Exception:
