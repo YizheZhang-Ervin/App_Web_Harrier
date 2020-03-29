@@ -66,16 +66,12 @@
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">URL</div>
                                                     <input name="url" class="col-7 text-white bg-transparent border-dashed" placeholder="https://host:port/path">
-                                                    <div class="col-4 dropdown-item text-white">Operation</div>
-                                                    <input name="operation" class="col-7 text-white bg-transparent border-dashed" list="itemlist_type">
-                                                    <datalist id="itemlist_type">
-                                                        <option>setUserAgent</option>
-                                                        <option>setKeyValue</option>
-                                                        <option>setConcat</option>
-                                                        <option>setViewPart</option>
-                                                    </datalist>
+                                                    <div class="col-4 dropdown-item text-white">setHeader</div>
+                                                    <input name="setHeader" class="col-7 text-white bg-transparent border-dashed" placeholder="headers={'xx':'xx'}">
+                                                    <div class="col-4 dropdown-item text-white">setParams</div>
+                                                    <input name="setKV" class="col-7 text-white bg-transparent border-dashed" placeholder="params={'xx':'xx'}">
                                                     <div class="col-4 dropdown-item text-white">Concat Content</div>
-                                                    <input name="content" class="col-7 text-white bg-transparent border-dashed" placeholder="xxxxx">
+                                                    <input name="concat" class="col-7 text-white bg-transparent border-dashed" placeholder="xxxxx">
                                                     <div class="col-4 dropdown-item text-white">View Part</div>
                                                     <input name="viewpart" class="col-7 text-white bg-transparent border-dashed" list="itemlist_view">
                                                     <datalist id="itemlist_view">
@@ -83,8 +79,7 @@
                                                         <option>tail</option>
                                                         <option>all</option>
                                                     </datalist>
-                                                    <div class="col-4 dropdown-item text-white">KeyValue</div>
-                                                    <input name="keyvalue" class="col-7 text-white bg-transparent border-dashed" placeholder="{'xx':'xx'}">
+
                                                 </div>
                                             </div>
                                         </li>
@@ -110,13 +105,13 @@
                                             <div class="dropdown-menu bg-dark border-none" aria-labelledby="dropdown05">
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">Download</div>
-                                                    <a class="btn bg-info text-white" href="{{ content }}" download="result.html">Download</a>
+                                                    <a class="btn bg-info text-white" href="{{ content }}" download="{{ name }}.html">Download</a>
                                                 </div>
                                             </div>
                                         </li>
                                         <!-- run -->
                                         <li class="nav-item active">
-                                            <button type="submit" class="nav-link btn bg-info w-100" href="#">Start Hunting<span class="sr-only">(current)</span></button>
+                                            <button type="submit" class="nav-link btn bg-info w-100">Start Hunting<span class="sr-only">(current)</span></button>
                                         </li>
                                     </form>
                                 </ul>
@@ -137,7 +132,7 @@
             </main>
             <footer class="mt-auto">
                 <div class="inner line-top">
-                    <p>Harrier Hunter Made By Ervin Zhang</p>
+                    <p>Harrier Hunter Designed By <a href="https://ervinzhang.pythonanywhere.com/" class="text-gold"><i>Ervin Zhang</i></a></p>
                 </div>
             </footer>
         </div>
