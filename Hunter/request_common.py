@@ -4,6 +4,8 @@ import requests
 # get Response from HTML
 def hunt(url, x=None, concat_str=None, return_content=None):
     try:
+        if not str(url).startswith('http'):
+            url = 'http://' + url
         if concat_str is None and x is not None:
             r = requests.get(url, x)
         elif concat_str is not None and x is None:

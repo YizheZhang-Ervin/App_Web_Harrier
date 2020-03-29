@@ -2,6 +2,10 @@
     text-overflow: ellipsis;
 }
 
+.v-middle{
+    vertical-align:middle;
+}
+
 .h-90{
     height:90%;
 }
@@ -52,4 +56,9 @@ body{
 .line-top{
     border-top:1.5px white inset;
     margin-top:1%;
+}
+
+.big-title{
+    margin-left:5%;
+    font-size:larger;
 }
