@@ -3,7 +3,7 @@ function changeiframe(){
     ifm001 = document.getElementById('ifm001');
     url = ipt001.value;
     if (url.substr(0,4) != "http"){
-        url = "http://" + url
+        url = "https://" + url
     }
     ifm001.src = url;
 }
