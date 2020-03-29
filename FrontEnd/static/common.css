@@ -62,3 +62,24 @@ body{
     margin-left:5%;
     font-size:larger;
 }
+
+.scroll-auto, .scroll-auto2{
+    overflow:auto;
+}
+
+.scroll-auto::-webkit-scrollbar {
+    width: 2%;
+}
+
+.scroll-auto2::-webkit-scrollbar {
+    width: 1%;
+}
+
+.scroll-auto::-webkit-scrollbar-thumb, .scroll-auto2::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: rgba(19,21,34,0.6);
+}
+.scroll-auto::-webkit-scrollbar-track, .scroll-auto2::-webkit-scrollbar-track {
+    border-radius: 25px;
+    background: #343a40;
+}

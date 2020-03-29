@@ -9,7 +9,7 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
         <title>Harrier Hunter</title>
     </head>
-    <body class="text-center" data-gr-c-s-loaded="true">
+    <body class="text-center scroll-auto2" data-gr-c-s-loaded="true">
         <div class="d-flex w-100 h-100 mx-auto flex-column">
             <header class="margin-bottom">
                 <nav class="navbar navbar-dark bg-dark inner text-left">
@@ -37,7 +37,7 @@
             <main role="main" class="inner cover">
                 <div class="row h-100">
                     <!-- parameters -->
-                    <div class="col-4 h-100">
+                    <div class="col-lg-4 col-sm-6 h-100 scroll-auto">
                         <nav class="navbar navbar-dark bg-dark inner text-left">
                             <a class="navbar-brand">General Parameters</a>
                             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,20 +66,61 @@
                                                 <div class="row">
                                                     <div class="col-4 dropdown-item text-white">URL</div>
                                                     <input name="url" class="col-7 text-white bg-transparent border-dashed" placeholder="https://host:port/path">
-                                                    <div class="col-4 dropdown-item text-white">setHeader</div>
-                                                    <input name="setHeader" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.headers={'user-agent':'Mozilla/5.0'}">
-                                                    <div class="col-4 dropdown-item text-white">setParams</div>
-                                                    <input name="setKV" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.params={'q':'xxx'}">
-                                                    <div class="col-4 dropdown-item text-white">Concat Content</div>
-                                                    <input name="concat" class="col-7 text-white bg-transparent border-dashed" placeholder="xxxxx">
+
+                                                    <div class="col-4 dropdown-item text-white">Method</div>
+                                                    <input name="method" class="col-7 text-white bg-transparent border-dashed" list="itemlist_method" placeholder="POST/GET">
+                                                    <datalist id="itemlist_method">
+                                                        <option>GET</option>
+                                                        <option>POST</option>
+                                                    </datalist>
+
                                                     <div class="col-4 dropdown-item text-white">View Part</div>
                                                     <input name="viewpart" class="col-7 text-white bg-transparent border-dashed" list="itemlist_view">
                                                     <datalist id="itemlist_view">
                                                         <option>text</option>
+                                                        <option>json</option>
                                                         <option>header</option>
                                                         <option>content</option>
                                                     </datalist>
 
+                                                    <div class="col-4 dropdown-item text-white">Timeout</div>
+                                                    <input name="timeout" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.30">
+
+                                                    <div class="col-4 dropdown-item text-white">setHeader</div>
+                                                    <input name="setHeader" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'user-agent':'Mozilla/5.0'}">
+
+                                                    <div class="col-4 dropdown-item text-white">setParams</div>
+                                                    <input name="setParams" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'q':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">setData</div>
+                                                    <input name="setData" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'xx':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">setJson</div>
+                                                    <input name="setJson" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'xx':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">Cookies</div>
+                                                    <input name="cookies" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'xx':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">Files</div>
+                                                    <input name="files" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'xx':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">Proxies</div>
+                                                    <input name="proxies" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.{'xx':'xxx'}">
+
+                                                    <div class="col-4 dropdown-item text-white">Auth</div>
+                                                    <input name="auth" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.()">
+
+                                                    <div class="col-4 dropdown-item text-white">Allow_redirects</div>
+                                                    <input name="allow_redirects" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.True/False">
+
+                                                    <div class="col-4 dropdown-item text-white">Verify</div>
+                                                    <input name="verify" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.True/False">
+
+                                                    <div class="col-4 dropdown-item text-white">Stream</div>
+                                                    <input name="stream" class="col-7 text-white bg-transparent border-dashed" placeholder="e.g.True/False">
+
+                                                    <div class="col-4 dropdown-item text-white">Cert</div>
+                                                    <input name="cert" class="col-7 text-white bg-transparent border-dashed" type="file">
                                                 </div>
                                             </div>
                                         </li>
@@ -119,13 +160,13 @@
                         </nav>
                     </div>
                     <!-- Browser -->
-                    <div class="col-4 h-100">
+                    <div class="col-lg-4 h-100 d-none d-lg-block">
                         <p class="bg-transparent text-white w-100 h-5 border-dashed margin-auto">Browser</p>
                         <input id="ipt001" class="bg-transparent text-white w-100 h-5 border-dashed" onblur="changeiframe()" placeholder="https://host:port/path">
                         <iframe id="ifm001" src="" class="w-100 h-90 bg-transparent border-dashed"></iframe>
                     </div>
                     <!-- Results -->
-                    <div class="col-4">
+                    <div class="col-lg-4 col-sm-6">
                         <textarea class="w-100 border-dashed bg-transparent text-white h-100" placeholder="Results Here" readonly>{{ result }}</textarea>
                     </div>
                 </div>
