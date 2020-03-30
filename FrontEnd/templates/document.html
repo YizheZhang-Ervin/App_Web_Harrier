@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% block blockmain %}
+<div class="row h-100 scroll-auto2">
+    <div class="col-2 border-right h-100">
+        <ul>
+            <li><a href="#what">What</a></li>
+            <li><a href="#when">When</a></li>
+            <li><a href="#where">Where</a></li>
+            <li><a href="#who">Who</a></li>
+            <li><a href="#why">Why</a></li>
+            <li><a href="#how">How</a></li>
+        </ul>
+    </div>
+    <div class="col-10">
+        <details class="text-left margin-0" id="what">
+            <summary>
+                What
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                Harrier Hunter is a visualized web crawler
+            </article>
+        </details>
+        <br>
+        <details class="text-left margin-0" id="when">
+            <summary>
+                When
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                Harrier Hunter can be used if not having a computer backend to deploy a crawler
+            </article>
+        </details>
+        <br>
+        <details class="text-left margin-0" id="where">
+            <summary>
+                Where
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                Harrier hunter can be used by any device
+            </article>
+        </details>
+        <br>
+        <details class="text-left margin-0" id="who">
+            <summary>
+                Who
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                Applicable for Non-Professional and busy data collector/requester
+            </article>
+        </details>
+        <br>
+        <details class="text-left margin-0" id="why">
+            <summary>
+                Why
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                Qucik, Convenient, Visible
+            </article>
+        </details>
+        <br>
+        <details class="text-left margin-0" id="how" open>
+            <summary>
+                How
+                <hr class="bg-white border-solid margin-0 w-20">
+            </summary>
+            <article class="text-left">
+                <details open>
+                    <summary>Basic Knowledge</summary>
+                    <div>
+                        <details  class="text-indent-5">
+                            <summary>Requests</summary>
+                            <details class="text-indent-10">
+                                <summary>request</summary>
+                                <p>pip install requests</p>
+                                <p>import requests as r</p>
+                                <p>r.request()</p>
+                                <p>r.get(url,params,**kwargs)</p>
+                                <p>r.post(url,data,json,**kwargs)</p>
+                                <p>r.put(url,data,**kwargs)</p>
+                                <p>r.patch(url,data,**kwargs)</p>
+                                <p>r.delete(url,**kwargs)</p>
+                                <p>r.head</p>
+                            </details>
+                            <details class="text-indent-10">
+                                <summary>response</summary>
+                                <p>response.status_code</p>
+                                <p>response.headers</p>
+                                <p>response.text</p>
+                                <p>response.encoding</p>
+                                <p>response.apparent_encoding</p>
+                                <p>response.content</p>
+                            </details>
+                        </details>
+                        <details class="text-indent-5">
+                            <summary>BeautifulSoup</summary>
+                            <p>XML/JSON/YAML</p>
+                            <p>pip install beautifulsoup4</p>
+                            <p>from bs4 import BeautifulSoup</p>
+                            <p>soup=BeautifulSoup(htmltext,html.parser/xml/lxml/html5lib)</p>
+                            <p>soup.prettify()</p>
+                            <p>soup.find_all(name,attrs,recursive,string,**kwargs) <=> soup(..)</p>
+                            <p>soup.tag</p>
+                            <p>soup.tag.get(attr)</p>
+                            <p>soup.tag.parent</p>
+                            <p>soup.tag.name</p>
+                            <p>soup.tag.attrs[..]</p>
+                            <p>soup.tag.string</p>
+                            <p>soup.tag.content</p>
+                            <p>soup.tag.children</p>
+                            <p>soup.tag.descendents</p>
+                            <p>soup.tag.parents</p>
+                            <p>soup.tag.parent</p>
+                            <p>soup.tag.next_sibling</p>
+                            <p>soup.tag.previous_sibling</p>
+                            <p>soup.tag.next_siblings</p>
+                            <p>soup.tag.previous_siblings</p>
+                            <p>soup.tag.find()</p>
+                            <p>soup.tag.find_parents()</p>
+                            <p>soup.tag.find_parent()</p>
+                            <p>soup.tag.find_next_siblings()</p>
+                            <p>soup.tag.find_next_sibling()</p>
+                            <p>soup.tag.find_previous_siblings()</p>
+                            <p>soup.tag.find_previous_sibling()</p>
+                        </details>
+                        <details class="text-indent-5">
+                            <summary>Regular Expression</summary>
+                            <p>re.search(pattern,string,flags=0)</p>
+                            <p>re.match(pattern,string,flags=0)</p>
+                            <p>re.findall(pattern,string,flags=0)</p>
+                            <p>re.split(pattern,string,maxsplit=0,flags=0)</p>
+                            <p>re.finditer(pattern,string,flags=0)</p>
+                            <p>re.sub()</p>
+                        </details>
+                    </div>
+                </details>
+                <details open>
+                    <summary>Manual of Harrier</summary>
+                    <details class="text-indent-5">
+                        <summary>General Parameters</summary>
+                        <details class="text-indent-10">
+                            <summary>Engine</summary>
+                            <p>Engine: Carrier</p>
+                        </details>
+                        <details class="text-indent-10">
+                            <summary>Basic</summary>
+                            <p>URL: https://host:port/path</p>
+                            <p>Methods: GET/POST/PUT/DELETE/PATCH</p>
+                            <p>View Part: text/json/header/content</p>
+                            <p>Timeout: int/float</p>
+                            <p>setHeaders: key-value</p>
+                            <p>setParams: key-value</p>
+                            <p>setData: key-value</p>
+                            <p>setJson: key-value</p>
+                            <p>Cookies: key-value</p>
+                            <p>Files: key-value</p>
+                            <p>Proxies: key-value</p>
+                            <p>Auth: tuple</p>
+                            <p>Allow_redirects: Boolean</p>
+                            <p>Verify: Boolean</p>
+                            <p>Stream: Boolean</p>
+                            <p>Cert: File</p>
+                        </details>
+                        <details class="text-indent-10">
+                            <summary>Optimize</summary>
+                        </details>
+                        <details class="text-indent-10">
+                            <summary>Save</summary>
+                        </details>
+                    </details>
+                    <details class="text-indent-5">
+                        <summary>Filter Data</summary>
+                        <details class="text-indent-10">
+                            <summary>Regex</summary>
+                            <p>Regex: [r'p+']</p>
+                            <p>Split: -</p>
+                            <p>Num: 0</p>
+                        </details>
+                        <details class="text-indent-10">
+                            <summary>Tag/Subtag</summary>
+                            <p>Tag: div</p>
+                            <p>Subtag: h3</p>
+                            <p>Parser: html.parser</p>
+                        </details>
+                    </details>
+                    <details class="text-indent-5">
+                        <summary>Output Result</summary>
+                        <details class="text-indent-10">
+                            <summary>Output</summary>
+                            <p>Output Format: {0}-{1}-{2}</p>
+                            <p>Column Names: ['a','b','c']</p>
+                        </details>
+                        <details class="text-indent-10">
+                            <summary>Save</summary>
+                            <p>Download: File</p>
+                        </details>
+                    </details>
+
+
+                </details>
+
+            </article>
+        </details>
+
+    </div>
+</div>
+{% endblock %}
