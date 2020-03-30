@@ -7,7 +7,7 @@ def output_list(liss, output_format, col_name):
             output += ''.join(output_format.format(*i) + '\n')
         return output
     except Exception:
-        return 'sth wrong with output'
+        return liss
 
 
 if __name__ == '__main__':
