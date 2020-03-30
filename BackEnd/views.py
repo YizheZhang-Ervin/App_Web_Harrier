@@ -4,7 +4,7 @@ from flask import Blueprint, request, render_template, abort
 
 from Hunter.filter import regex_filter, bs4_filter
 from Hunter.output import output_list
-from Hunter.requests import hunt
+from Hunter.hunt import hunt
 
 hunter = Blueprint('hunter', __name__)
 
@@ -56,15 +56,17 @@ def filterform():
         for k, v in parameters.items():
             para_dict[k] = v
         rg = para_dict.get('regex', '')
+        sp = para_dict.get('split', '')
+        if sp == '': sp = None
+        num = para_dict.get('num', '')
+        if num == '': num = None
         if rg != '' and rg is not None:
-            result = regex_filter(html_txt=para_dict.get('html_txt', ''), split=para_dict.get('split', ''),
-                                  num=para_dict.get('num', ''), regex=rg)
+            result = regex_filter(html_txt=para_dict.get('html_txt', ''), split=sp, num=num, regex=rg)
         else:
             result = bs4_filter(tag=para_dict.get('tag', ''), subtag=para_dict.get('subtag', ''),
                                 html_txt=para_dict.get('html_txt', ''), parser=para_dict.get('parser', ''))
-        global results
-        results = result
-        return render_template('index.html', result=result, content='', name='')
+        content = "data:application/html;charset=utf-8," + parse.quote(result)
+        return render_template('index.html', result=result, content=content, name='')
 
 
 @hunter.route('/output', methods=['POST'])
@@ -75,7 +77,8 @@ def outputform():
         for k, v in parameters.items():
             para_dict[k] = v
         col_name = para_dict.get('col_name', '')
-        result = output_list(liss=results, output_format=para_dict.get('format', ''), col_name=col_name)
+        html_txt = para_dict.get('html_txt', '')
+        result = output_list(liss=html_txt, output_format=para_dict.get('format', ''), col_name=col_name)
         content = "data:application/html;charset=utf-8," + parse.quote(result)
         return render_template('index.html', result=result, content=content, name="output")
 

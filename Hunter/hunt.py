@@ -7,26 +7,26 @@ def hunt(viewpart=None, method=None, url=None, timeout=None, headers=None, param
          allow_redirects=True, verify=True, stream=True, code=None):
 
     # data cleaning
-    if viewpart is None or viewpart is '': viewpart = ''
-    if method is None or method is '': method = 'GET'
-    if url is None or url is '':
+    if viewpart is None or viewpart == '': viewpart = ''
+    if method is None or method == '': method = 'GET'
+    if url is None or url == '':
         url = ''
     elif not str(url).startswith('http'):
         url = 'https://' + url
-    if timeout is None or timeout is '': timeout = 30
-    if headers is None or headers is '': headers = {}
-    if params is None or params is '': params = {}
-    if data is None or data is '': data = {}
-    if json is None or json is '': json = {}
-    if cookies is None or cookies is '': cookies = {}
-    if files is None or files is '': files = {}
-    if proxies is None or proxies is '': proxies = {}
-    if auth is None or auth is '': auth = ()
-    if cert is None or cert is '': cert = ''
-    if code is None or code is '': code = ''
+    if timeout is None or timeout == '': timeout = 30
+    if headers is None or headers == '': headers = {}
+    if params is None or params == '': params = {}
+    if data is None or data == '': data = {}
+    if json is None or json == '': json = {}
+    if cookies is None or cookies == '': cookies = {}
+    if files is None or files == '': files = {}
+    if proxies is None or proxies == '': proxies = {}
+    if auth is None or auth == '': auth = ()
+    if cert is None or cert == '': cert = ''
+    if code is None or code == '': code = ''
     # start request
     try:
-        response = requests.request(method=method, url=url, timeout=timeout, headers=headers, params=params, data=data,
+        response = requests.request(method=method, url=url, timeout=int(timeout), headers=headers, params=params, data=data,
                                     json=json, allow_redirects=allow_redirects, cookies=cookies, files=files, auth=auth,
                                     verify=verify, cert=cert, proxies=proxies, stream=stream)
         response.raise_for_status()

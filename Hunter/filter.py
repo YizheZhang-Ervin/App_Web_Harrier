@@ -5,6 +5,7 @@ import bs4
 # use regex (grid/table)
 def regex_filter(html_txt=None, split=None, num=None, regex=None):
     try:
+        regex = eval(regex)
         t_list = [[] for _ in range(len(regex))]
         # column
         for i in range(len(regex)):
@@ -45,6 +46,6 @@ if __name__ == '__main__':
     parser = 'html.parser'
     split = None
     num = None
-    regex = [r'<p>+']
+    regex = [r'p+']
     print(regex_filter(html_txt, split, num, regex))
     print(bs4_filter(tag, subtag, html_txt, parser))

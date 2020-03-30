@@ -1,5 +1,7 @@
 def output_list(liss, output_format, col_name):
     try:
+        if output_format == '' or col_name == '':
+            return liss
         output = output_format.format(*col_name) + '\n'
         for i in liss:
             output += ''.join(output_format.format(*i) + '\n')
